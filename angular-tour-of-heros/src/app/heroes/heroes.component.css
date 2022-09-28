@@ -1,0 +1,8 @@
+section {
+  display: flex;
+  gap: 2em;
+  border: solid 1px gray;
+  padding: 4em;
+  justify-content: center;
+  align-items: space-between;
+}
