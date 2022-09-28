@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Hero } from '../hero';
 
 const HEROES: Hero[] = [
@@ -19,10 +20,22 @@ const HEROES: Hero[] = [
 })
 export class HeroesManagementService {
 
-  loadedHeroes: Hero[] = []
+  private heroesSubject =  new BehaviorSubject<Hero[]>([])
+  public heroes$: Observable<Hero[]> = this.heroesSubject.asObservable()
 
   constructor() {
-    // setTimeout(() => this.loadedHeroes = HEROES, 1200)
-    this.loadedHeroes = HEROES
+    setTimeout(() => {
+      this.heroesSubject.next(HEROES)
+    }, 1200)
+
+    setTimeout(() => {
+      this.heroesSubject.next([])
+    }, 4200)
+
+    setTimeout(() => {
+      this.heroesSubject.next(HEROES)
+    }, 10200)
   }
+
+
 }

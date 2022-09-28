@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { HeroesManagementService } from '../services/heroes-management.service';
 
 @Component({
@@ -6,13 +7,20 @@ import { HeroesManagementService } from '../services/heroes-management.service';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent implements OnInit, OnDestroy {
 
+  heroesSubscription?: Subscription
   heroCount = 0
   constructor(private heroesManagement: HeroesManagementService) { }
 
   ngOnInit(): void {
-    this.heroCount = this.heroesManagement.loadedHeroes.length
+    this.heroesSubscription = this.heroesManagement.heroes$.subscribe((newHeroes) => {
+      console.log('...new data arrived', newHeroes)
+      this.heroCount = newHeroes.length
+    })
   }
 
+  ngOnDestroy(): void {
+    this.heroesSubscription?.unsubscribe()
+  }
 }
