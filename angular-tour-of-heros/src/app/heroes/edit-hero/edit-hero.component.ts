@@ -8,10 +8,10 @@ import { Hero } from 'src/app/hero';
 })
 
 export class EditHeroComponent implements OnInit {
-  @Input() hero:Hero | undefined
-  @Input() status:string | undefined
+  @Input() hero!:Hero
+  @Input() status!:string
 
-//  hero: Hero = { id:'xyz', name: 'Superman' }
+  //hero2: Hero = { id:'xyz', name: 'Superman' }
 
   constructor() { }
 
