@@ -10,9 +10,9 @@ export class HeroesComponent implements OnInit {
 
   hero: Hero = { id: '4711', name: 'Spiderman' }
 
-  onHeroChanged(hero: Hero) {
-    console.log('onHeroChanged', hero)
-    this.hero = hero
+  onHeroChanged(newHero: Hero) {
+    console.log('onHeroChanged', newHero)
+    this.hero = newHero
   }
 
   constructor() {

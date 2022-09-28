@@ -1,4 +1,4 @@
-<app-heroes-list (heroChanged)="onHeroChanged(hero)"></app-heroes-list>
+<app-heroes-list (heroChanged)="onHeroChanged($event)"></app-heroes-list>
 
 <section>
   <h2>Details von {{hero.name | uppercase}}</h2>
