@@ -18,3 +18,7 @@ li > article {
   justify-content: space-between;
   gap: 1em;
 }
+
+li > article.selected {
+  background-color: #ccc;
+}

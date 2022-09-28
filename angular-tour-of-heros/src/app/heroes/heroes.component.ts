@@ -10,6 +10,11 @@ export class HeroesComponent implements OnInit {
 
   hero: Hero = { id: '4711', name: 'Spiderman' }
 
+  onHeroChanged(hero: Hero) {
+    console.log('onHeroChanged', hero)
+    this.hero = hero
+  }
+
   constructor() {
     const x1 = 'Das ist ein guter String'
     const x2 = "Das ist ein schlechter String per Konvention"

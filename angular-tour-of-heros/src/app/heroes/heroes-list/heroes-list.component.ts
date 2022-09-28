@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Hero } from '../../hero';
 import { HEROES } from '../../mocked-heroes'
 @Component({
@@ -8,11 +8,14 @@ import { HEROES } from '../../mocked-heroes'
 })
 export class HeroesListComponent implements OnInit {
 
+  @Output() heroChanged = new EventEmitter<Hero>()
+
   heroes = HEROES
   selectedHero: Hero | undefined
 
   onSelect(hero: Hero) {
-    console.log('selected hero', hero)
+    this.selectedHero = hero
+    this.heroChanged.emit(hero)
   }
 
   constructor() { }
