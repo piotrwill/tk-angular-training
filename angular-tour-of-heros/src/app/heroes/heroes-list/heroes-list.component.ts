@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { HeroesManagementService } from '../../services/heroes-management.service';
 import { Hero } from '../../hero';
-import { HEROES } from '../../mocked-heroes'
 @Component({
   selector: 'app-heroes-list',
   templateUrl: './heroes-list.component.html',
@@ -10,7 +10,7 @@ export class HeroesListComponent implements OnInit {
 
   @Output() heroChanged = new EventEmitter<Hero>()
 
-  heroes = HEROES
+  heroes: Hero[] = []
   selectedHero: Hero | undefined
 
   onSelect(hero: Hero) {
@@ -18,9 +18,10 @@ export class HeroesListComponent implements OnInit {
     this.heroChanged.emit(hero)
   }
 
-  constructor() { }
+  constructor(private heroesManagement: HeroesManagementService) { }
 
   ngOnInit(): void {
+    this.heroes = this.heroesManagement.loadedHeroes
   }
 
 }

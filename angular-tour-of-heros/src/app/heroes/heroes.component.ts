@@ -16,12 +16,8 @@ export class HeroesComponent implements OnInit {
   }
 
   constructor() {
-    const x1 = 'Das ist ein guter String'
-    const x2 = "Das ist ein schlechter String per Konvention"
-    const x3 = `Das ist ein String im String ${x1}`
-    const x4 = `Ich benutz es aber nicht, also schlecht`
-
-   }
+ 
+  }
 
   ngOnInit(): void {
   }
