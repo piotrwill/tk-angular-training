@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-tour-of-heros';
+  welcomeText = 'Welcome to Telekom Tour of Heroes'
+
+  getHello(name: string) {
+      return `Hi ${name}`
+   }
 }
