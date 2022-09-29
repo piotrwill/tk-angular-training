@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  gap: 2em;
+}
+
+label {
+  border: solid 1px transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+label.invalid {
+  color: red;
+}
+
+label span {
+  position: relative;
+}
