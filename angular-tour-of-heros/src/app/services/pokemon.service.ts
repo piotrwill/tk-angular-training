@@ -15,8 +15,8 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   getPokemons$(): Observable<Array<Pokemon>> {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=4', {})
-      .pipe(map((data: any) => data.results as Pokemon[]))
+    return this.http.get<{ results: Pokemon[]}>('https://pokeapi.co/api/v2/pokemon?limit=4', {})
+      .pipe(map((data) => data.results))
   }
 
 }
