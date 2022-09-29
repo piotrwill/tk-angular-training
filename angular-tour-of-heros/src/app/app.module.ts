@@ -7,19 +7,21 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { HeroesModule } from './heroes/heroes.module';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
-import { UserListComponent } from './users/user-list/user-list.component';
+import { UsersModule } from './users/users.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
     PokemonListComponent,
-    UserListComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HeroesModule,
+    UsersModule,
     HttpClientModule  
   ],
   providers: [],
