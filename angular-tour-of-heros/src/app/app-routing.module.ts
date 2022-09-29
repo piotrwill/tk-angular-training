@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
+import { UserListComponent } from './users/user-list/user-list.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
     title: 'Pokemon Figuren',
     path: 'pokemons',
     component: PokemonListComponent
+  },
+  {
+    title: 'Benutzer',
+    path: 'users',
+    component: UserListComponent
   }
 ];
 

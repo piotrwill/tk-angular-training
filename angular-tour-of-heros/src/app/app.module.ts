@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { HeroesModule } from './heroes/heroes.module';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
+import { UserListComponent } from './users/user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
