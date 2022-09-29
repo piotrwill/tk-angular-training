@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
-import { UserListComponent } from './users/user-list/user-list.component';
+import { UsersModule } from './users/users.module';
 
 const routes: Routes = [
   {
@@ -15,11 +15,10 @@ const routes: Routes = [
     title: 'Pokemon Figuren',
     path: 'pokemons',
     component: PokemonListComponent
-  },
-  {
-    title: 'Benutzer',
+  },{
+    title: 'Users',
     path: 'users',
-    component: UserListComponent
+    loadChildren: () => UsersModule
   },
   {
     title: 'Seite nicht gefunden',
