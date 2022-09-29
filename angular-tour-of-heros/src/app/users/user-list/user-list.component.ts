@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User, UsersService } from '../../services/users.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { User, UsersService } from '../../services/users.service';
 export class UserListComponent implements OnInit {
 
   users: User[] = []
-  constructor(usersService: UsersService, protected router: Router) {
+  constructor(usersService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {
     usersService.getUsers$().subscribe((users) => {
       this.users = users
     })
@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit {
   }
 
   onClickNewUser() {
-    this.router.navigate(['users', 'new'])
+    this.router.navigate(['./new'], { relativeTo: this.activatedRoute });
   }
 
 }
