@@ -18,7 +18,7 @@ export class PokemonService {
 
   getPokemons$(): Observable<Array<Pokemon>> {
     const first = this.http.get<{ results: Pokemon[]}>(`${url}?limit=4`)
-    const second = this.http.get<{ results: Pokemon[]}>(`${url}?skip=4&limit=6`)
+    const second = this.http.get<{ results: Pokemon[]}>(`${url}?offset=4&limit=6`)
     return forkJoin({first, second})
       .pipe(
         map((data) => {

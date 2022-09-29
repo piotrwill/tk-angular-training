@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../hero';
 
 @Component({
@@ -15,8 +16,9 @@ export class HeroesComponent implements OnInit {
     this.hero = newHero
   }
 
-  constructor() {
- 
+  constructor(private activatedRoute: ActivatedRoute) {
+    // console log works because this component is activated via router-outlet in app component
+    this.activatedRoute.title.subscribe((title) => console.log(title))
   }
 
   ngOnInit(): void {
