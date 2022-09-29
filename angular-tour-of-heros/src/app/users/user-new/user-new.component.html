@@ -8,6 +8,10 @@
     Email
     <input type="text" placeholder="Bitte Email eingeben" formControlName="email" />
   </label>
+  <label>
+    Gender
+    <input type="text" placeholder="Bitte male or female angeben" formControlName="gender" />
+  </label>
 </form>
 
-<button (click)="onSaveClick()">Abspeichern</button>
+<button [disabled]="formGroup.invalid" (click)="onSaveClick()">Abspeichern</button>
