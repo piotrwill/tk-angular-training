@@ -1,1 +1,13 @@
 <p>user-new works!</p>
+<form [formGroup]="formGroup">
+  <label>
+    Name
+    <input type="text" placeholder="Bitte Name eingeben" formControlName="name" />
+  </label>
+  <label>
+    Email
+    <input type="text" placeholder="Bitte Email eingeben" formControlName="email" />
+  </label>
+</form>
+
+<button (click)="onSaveClick()">Abspeichern</button>

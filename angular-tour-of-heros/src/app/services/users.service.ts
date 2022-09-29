@@ -22,4 +22,8 @@ export class UsersService {
   getUsers$(): Observable<User[]> {
     return this.httpClient.get<User[]>('https://gorest.co.in/public/v2/users', { headers })
   }
+
+  saveNewUser$(newUser: Partial<User>) {
+    console.log('saveNewUser', newUser)
+  }
 }
