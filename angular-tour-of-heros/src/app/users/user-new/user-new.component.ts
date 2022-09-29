@@ -20,15 +20,18 @@ export class UserNewComponent implements OnInit {
     })
 
     this.formGroup.valueChanges.subscribe(newValues => {
-      this.newUser = {...this.newUser, ...newValues, status: 'changed' }
+      this.newUser = {...this.newUser, ...newValues, gender: 'female', status: 'active' }
       console.log(this.newUser)
     })
 
   }
 
   onSaveClick() {
-    this.usersService.saveNewUser$(this.newUser)
-    this.router.navigate(['users'])
+    this.usersService.saveNewUser$(this.newUser).subscribe({
+      next: (data) => console.log('received', data),
+      error: (err) => console.error(err),
+      complete: () => this.router.navigate(['users'])
+    })
   }
 
   ngOnInit(): void {
