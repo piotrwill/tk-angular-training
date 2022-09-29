@@ -1,19 +1,19 @@
 <p>user-new works!</p>
 <form [formGroup]="formGroup">
-  <label [class.invalid]="!formGroup.get('name')?.valid">
+  <label [class.invalid]="!controls['name'].valid">
     Name
     <input type="text" placeholder="Bitte Name eingeben" formControlName="name" />
-    <span role="alert" *ngIf="!formGroup.get('name')?.valid">Der Name muss angegeben werden.</span>
+    <span role="alert" *ngIf="!controls['name'].valid">Der Name muss angegeben werden.</span>
   </label>
-  <label>
+  <label [class.invalid]="!controls['email'].valid">
     Email
     <input type="text" placeholder="Bitte Email eingeben" formControlName="email" />
-    <span role="alert"></span>
+    <span role="alert" *ngIf="!controls['email'].valid">Gültige Email Adresse angeben.</span>
   </label>
-  <label>
+  <label [class.invalid]="!controls['gender'].valid">
     Gender
     <input type="text" placeholder="Bitte male or female angeben" formControlName="gender" />
-    <span role="alert"></span>
+    <span role="alert" *ngIf="!controls['gender'].valid">'male' oder 'female' angeben</span>
   </label>
 </form>
 

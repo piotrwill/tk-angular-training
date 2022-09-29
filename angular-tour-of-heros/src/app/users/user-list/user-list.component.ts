@@ -23,4 +23,7 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['./new'], { relativeTo: this.activatedRoute });
   }
 
+  onDeleteUserClick(user: User) {
+    console.log('deleting user ', user)
+  }
 }

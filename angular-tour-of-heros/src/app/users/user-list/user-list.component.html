@@ -3,5 +3,6 @@
 <ul>
   <li *ngFor="let user of users">
     {{ user.name }}
+    <button (click)="onDeleteUserClick(user)">Löschen</button>
   </li>
 </ul>

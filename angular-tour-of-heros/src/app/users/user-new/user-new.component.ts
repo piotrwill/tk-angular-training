@@ -14,7 +14,7 @@ export class UserNewComponent implements OnInit {
   newUser: Partial<User> = {}
 
   constructor(private router: Router, formBuilder: FormBuilder, private usersService: UsersService) {
-    this.formGroup = formBuilder.group({
+    this.formGroup = formBuilder.nonNullable.group({
       name: ['', { validators: [Validators.required]}],
       email: ['', { validators: [Validators.required, Validators.email]}],
       gender: ['', { validators: [Validators.required, Validators.pattern(/male|female/)]}]
@@ -24,8 +24,9 @@ export class UserNewComponent implements OnInit {
       this.newUser = {...this.newUser, ...newValues, status: 'active' }
       console.log(this.newUser)
     })
-
   }
+
+  get controls() { return this.formGroup.controls }
 
   onSaveClick() {
     this.usersService.saveNewUser$(this.newUser).subscribe({
