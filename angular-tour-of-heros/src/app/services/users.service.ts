@@ -7,12 +7,15 @@ const headers = new HttpHeaders({Authorization:'Bearer 2599a7af1b856b619729fde0e
 export interface User {
   id: number
   name: string
+  first_name: string
+  last_name: string
   email: string
   gender: 'male' | 'female'
   status: 'active' | 'inactive'
 }
 
-const serviceUrl = 'https://gorest.co.in/public/v2/users'
+//const serviceUrl = 'https://gorest.co.in/public/v2/users'
+const serviceUrl = 'https://reqres.in/api/users?page=2'
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +24,10 @@ export class UsersService {
   constructor(private httpClient: HttpClient) { }
 
   getUsers$(): Observable<User[]> {
-    return this.httpClient.get<User[]>(serviceUrl, { headers })
+    return this.httpClient.get<{ data: User[]}>(serviceUrl, { headers })
+      .pipe(map(response => response.data.map(user => (
+        { ...user, name: !user.name ? `${user.first_name} ${user.last_name}` : user.name}
+      ))))
   }
 
   saveNewUser$(newUser: Partial<User>) {
