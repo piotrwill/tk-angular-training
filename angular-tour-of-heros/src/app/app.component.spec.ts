@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-tour-of-heros'`, () => {
+  it(`should have as title 'Karma Tests sind Schlecht!!!'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    //expect(app.title).toEqual('angular-tour-of-heros');
+    expect(app.title).toEqual('Karma Tests sind Schlecht!!!');
   });
 
   it('should render title', () => {

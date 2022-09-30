@@ -23,4 +23,6 @@ describe('PokemonListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it()
 });

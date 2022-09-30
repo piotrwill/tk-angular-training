@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent implements OnInit {
   welcomeText = 'Welcome to Telekom Tour of Heroes'
   activeRouteName?: string = "unbekannt"
+  title = "Karma Tests sind Schlecht!!!"
 
   constructor(private router: Router) {
     this.router.events.subscribe((event: any) => {

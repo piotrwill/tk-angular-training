@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { forkJoin, map, Observable, switchMap } from 'rxjs';
+import { forkJoin, map, Observable, switchMap, timer } from 'rxjs';
 
 export interface Pokemon {
   id: number,
@@ -19,7 +19,8 @@ export class PokemonService {
   getPokemons$(): Observable<Array<Pokemon>> {
     const first = this.http.get<{ results: Pokemon[]}>(`${url}?limit=4`)
     const second = this.http.get<{ results: Pokemon[]}>(`${url}?offset=4&limit=6`)
-    return forkJoin({first, second})
+    const delay = timer(3000)
+    return forkJoin({first, second, delay})
       .pipe(
         map((data) => {
           console.log(data)

@@ -1,5 +1,6 @@
-<ul>
-  <li *ngFor="let pokemon of pokemonList">
+<div *ngIf="loading" role="progressbar">Liste der Pokemons wird aus dem Internet geladen...</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let pokemon of pokemonList">
     <article>
       <h2>{{ pokemon.name }}</h2>
       <a href="">Link to {{ pokemon.name }}</a>

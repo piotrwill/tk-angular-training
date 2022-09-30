@@ -9,6 +9,7 @@ import { Pokemon, PokemonService } from '../../services/pokemon.service';
 export class PokemonListComponent implements OnInit {
 
   pokemonList: Array<Pokemon> = []
+  loading = true
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -16,6 +17,7 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.getPokemons$().subscribe({
       next: (pokemonList) => {
         this.pokemonList = pokemonList
+        this.loading = false
       },
       error: (err) => console.error(err),
       complete: () => console.log('completed')
