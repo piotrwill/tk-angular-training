@@ -17,7 +17,7 @@ export class UserNewComponent implements OnInit {
     this.formGroup = formBuilder.nonNullable.group({
       name: ['', { validators: [Validators.required]}],
       email: ['', { validators: [Validators.required, Validators.email]}],
-      gender: ['', { validators: [Validators.required, Validators.pattern(/male|female/)]}]
+      gender: ['', { validators: [Validators.required, Validators.pattern(/^male$|^female$/)]}]
     })
 
     this.formGroup.valueChanges.subscribe(newValues => {
