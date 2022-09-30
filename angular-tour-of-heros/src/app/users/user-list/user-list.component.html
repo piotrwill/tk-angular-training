@@ -1,8 +1,10 @@
-<h2>user-list works!</h2>
-<button (click)="onClickNewUser()">Neuen Benutzer anlegen</button>
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.name }}
-    <button (click)="onDeleteUserClick(user)">Löschen</button>
-  </li>
-</ul>
+<section>
+  <h2>user-list works!</h2>
+  <button class="btn btn-primary" (click)="onClickNewUser()">Neuen Benutzer anlegen</button>
+  <ul class="list-group">
+    <li *ngFor="let user of users" class="list-group-item">
+      {{ user.name }}
+      <button class="btn btn-danger" (click)="onDeleteUserClick(user)">Löschen</button>
+    </li>
+  </ul>
+</section>

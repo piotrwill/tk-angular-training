@@ -1,0 +1,11 @@
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+ul li {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
