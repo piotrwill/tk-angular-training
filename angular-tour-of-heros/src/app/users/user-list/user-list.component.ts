@@ -8,10 +8,10 @@ import { User, UsersService } from '../../services/users.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
   users: User[] = []
-  constructor(usersService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private usersService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {
     usersService.getUsers$().subscribe((users) => {
+      console.log('users received', users)
       this.users = users
     })
   }
@@ -25,5 +25,8 @@ export class UserListComponent implements OnInit {
 
   onDeleteUserClick(user: User) {
     console.log('deleting user ', user)
+    this.usersService.deleteUser$(user).subscribe({
+      error: (err) => console.error(err),
+    })
   }
 }
