@@ -1,4 +1,6 @@
 <div *ngIf="loading" role="progressbar">Liste der Pokemons wird aus dem Internet geladen...</div>
+<div *ngIf="hasError" role="alert">Fehler beim Laden<br/><code>{{ errorMessage }}</code></div>
+
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let pokemon of pokemonList">
     <article>

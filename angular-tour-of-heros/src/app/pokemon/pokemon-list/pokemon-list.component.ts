@@ -10,6 +10,8 @@ export class PokemonListComponent implements OnInit {
 
   pokemonList: Array<Pokemon> = []
   loading = true
+  hasError = false
+  errorMessage = ''
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -19,7 +21,12 @@ export class PokemonListComponent implements OnInit {
         this.pokemonList = pokemonList
         this.loading = false
       },
-      error: (err) => console.error(err),
+      error: (err) => {
+        this.hasError = true
+        this.loading = false
+        this.errorMessage = JSON.stringify(err, null, 2)
+        console.error(err)
+      },
       complete: () => console.log('completed')
     })
   }

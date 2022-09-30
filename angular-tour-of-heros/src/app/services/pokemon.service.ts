@@ -18,15 +18,15 @@ export class PokemonService {
 
   getPokemons$(): Observable<Array<Pokemon>> {
     const first = this.http.get<{ results: Pokemon[]}>(`${url}?limit=4`)
-    const second = this.http.get<{ results: Pokemon[]}>(`${url}?offset=4&limit=6`)
-    const delay = timer(3000)
-    return forkJoin({first, second, delay})
+    // const second = this.http.get<{ results: Pokemon[]}>(`${url}?offset=4&limit=6`)
+    const delay = timer(0)
+    return forkJoin({first /*, second*/, delay})
       .pipe(
         map((data) => {
           console.log(data)
           return data
         }),
-        map(({first, second}) => [...first.results, ...second.results])
+        map(({first}) => [...first.results/*, ...second.results*/])
         )
   }
 
